@@ -683,5 +683,7 @@
     }
   }
 
-  initGarden();
+  const threeScript = document.querySelector('script[src*="three.min.js"]');
+  if (window.THREE) initGarden();
+  else if (threeScript) threeScript.addEventListener("load", initGarden, { once: true });
 })();
