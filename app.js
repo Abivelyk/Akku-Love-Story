@@ -401,7 +401,7 @@
         new THREE.MeshStandardMaterial({ color: 0xd4a882, metalness: .58, roughness: .4 })
       );
       scene.add(rail);
-    }
+    });
   }
 
   function addArch(z) {
