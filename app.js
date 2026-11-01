@@ -379,7 +379,7 @@
       color: 0x30252d, roughness: .88, metalness: .04
     });
     for (let index = 0; index < 33; index += 1) {
-      const z = 7 - index * 3.1;
+      const z = -1 - index * 3.1;
       const bend = Math.sin(index * .19) * .8;
       const stone = new THREE.Mesh(stoneGeometry, stoneMaterial);
       stone.position.set(bend, -.24, z);
@@ -392,7 +392,7 @@
       const points = [];
       for (let index = 0; index <= 8; index += 1) {
         const progress = index / 8;
-        const z = 8 - progress * 102;
+        const z = -1 - progress * 102;
         const x = Math.sin(progress * 8.2) * .8 + edge;
         points.push(new THREE.Vector3(x, -.1, z));
       }
@@ -655,9 +655,9 @@
       addGardenTexture();
       addLightGarden();
       addPath();
-      addArch(-23);
-      addArch(-51);
-      addArch(-80);
+      addArch(-38);
+      addArch(-66);
+      addArch(-94);
       addRoseBeds();
       buildPhotoFrames();
 
