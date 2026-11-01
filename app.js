@@ -361,8 +361,8 @@
   }
 
   function addLightGarden() {
-    scene.add(new THREE.HemisphereLight(0xffe3dc, 0x191224, 1.55));
-    const moon = new THREE.DirectionalLight(0xe5d7ff, 1.7);
+    scene.add(new THREE.HemisphereLight(0xffe3dc, 0x191224, 1.05));
+    const moon = new THREE.DirectionalLight(0xe5d7ff, 1.2);
     moon.position.set(-7, 10, -18);
     scene.add(moon);
 
@@ -374,31 +374,32 @@
   }
 
   function addPath() {
-    const stoneGeometry = new THREE.BoxGeometry(4.8, .16, 4.25);
+    const stoneGeometry = new THREE.BoxGeometry(2.8, .12, 2.45);
     const stoneMaterial = new THREE.MeshStandardMaterial({
-      color: 0x51414a, roughness: .66, metalness: .17
+      color: 0x30252d, roughness: .88, metalness: .04
     });
-    for (let index = 0; index < 29; index += 1) {
-      const z = 7 - index * 3.5;
-      const bend = Math.sin(index * .19) * 1.05;
+    for (let index = 0; index < 33; index += 1) {
+      const z = 7 - index * 3.1;
+      const bend = Math.sin(index * .19) * .8;
       const stone = new THREE.Mesh(stoneGeometry, stoneMaterial);
       stone.position.set(bend, -.24, z);
-      stone.rotation.y = Math.sin(index * .21) * .035;
+      stone.scale.set(.9 + (index % 3) * .06, 1, .9 + (index % 4) * .035);
+      stone.rotation.y = Math.sin(index * .21) * .045;
       scene.add(stone);
     }
 
-    [-2.52, 2.52].forEach(function (edge) {
+    [-2.2, 2.2].forEach(function (edge) {
       const points = [];
       for (let index = 0; index <= 8; index += 1) {
         const progress = index / 8;
         const z = 8 - progress * 102;
-        const x = Math.sin(progress * 8.2) * 1.05 + edge;
+        const x = Math.sin(progress * 8.2) * .8 + edge;
         points.push(new THREE.Vector3(x, -.1, z));
       }
       const railCurve = new THREE.CatmullRomCurve3(points);
       const rail = new THREE.Mesh(
-        new THREE.TubeGeometry(railCurve, 120, .028, 6, false),
-        new THREE.MeshStandardMaterial({ color: 0xd4a882, metalness: .58, roughness: .4 })
+        new THREE.TubeGeometry(railCurve, 120, .015, 6, false),
+        new THREE.MeshStandardMaterial({ color: 0x9c777a, metalness: .32, roughness: .62 })
       );
       scene.add(rail);
     });
@@ -654,9 +655,9 @@
       addGardenTexture();
       addLightGarden();
       addPath();
-      addArch(-13);
-      addArch(-42);
-      addArch(-72);
+      addArch(-23);
+      addArch(-51);
+      addArch(-80);
       addRoseBeds();
       buildPhotoFrames();
 
