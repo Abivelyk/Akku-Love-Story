@@ -27,3 +27,4 @@ Serve this folder over HTTP, for example with a simple static web server. There 
 The assets folder contains the original photos, films, soundtrack, and the generated garden environment. Music and video are user initiated.
 
 
+GPT LUNA MODEL AT MAX
